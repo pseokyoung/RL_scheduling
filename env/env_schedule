@@ -21,7 +21,7 @@ MATERIAL_NORMALIZE = np.array([3710.0,      #low-lime
 INITIAL_INVENTORY = np.array([3710.0,      #low-lime
                               3710.0,      #high-lime
                               3710.0,      #oyster
-                              548.304795,  #clam 
+                              548.304795,  #clam
                               3710.0])     #mussel
 '''
 
@@ -45,7 +45,7 @@ class InventoryEnv(gym.Env):
         
         # load data from a pandas dataframe
         self.data = self.df.loc[self.month,:]
-        self.terminal = False          
+        self.terminal = False
            
         # initalize state
         self.state = [INITIAL_ACCOUNT_BALANCE] + \
@@ -55,6 +55,7 @@ class InventoryEnv(gym.Env):
                       self.data.rsi.values.tolist() + \
                       self.data.cci.values.tolist() + \
                       self.data.adx.values.tolist()
+                      
         # initialize reward
         self.reward = 0
         self.cost = 0
